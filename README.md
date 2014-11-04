@@ -10,8 +10,11 @@ Features
 - Asynchronous feed download
 - Suport for multiple sources and multiple destinations
 - Filters (string match, wildcards, and Regex)
+- Support for saving and loading settings from a file
+
 
 Example
+--
 ```c#
 PercolatorSettings pipelineSettings = new PercolatorSettings
 {
