@@ -12,7 +12,7 @@ Features
 - Filters (string match, wildcards, and Regex)
 
 Example
---
+```c#
 
             var pipelineSettings = new PercolatorSettings
             {
@@ -70,5 +70,5 @@ Example
             {
                 pipeline.Execute(filters, pipelineSettings);
             }
-
+```
 
