@@ -1,4 +1,4 @@
 RssPercolator
 =============
 
-.NET Library for aggregating and filtering RSS feeds.
+.NET library for aggregating and filtering RSS feeds.
