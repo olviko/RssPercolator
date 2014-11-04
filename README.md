@@ -32,9 +32,10 @@ PercolatorSettings pipelineSettings = new PercolatorSettings
             Description = "Aggregated feed of multiple projects"
         }
     },
+    // Filters are always evaluated from top to bottom
     Filters = new[]
     {
-        // First, exlude all
+        // First, exclude all
         new FilterSettings
         {
             Action = FilterAction.Exclude,
@@ -43,7 +44,7 @@ PercolatorSettings pipelineSettings = new PercolatorSettings
             Patterns = new [] { "*" }
         },
     
-        // Include activity related to the specific project
+        // Include posts with "Release" or "Version" keywords
         new FilterSettings
         {
             Action = FilterAction.Include,
@@ -57,10 +58,8 @@ PercolatorSettings pipelineSettings = new PercolatorSettings
     }
 };
 
-// Build filters
-IFilter[] filters = percolatorSettings.Filters != null ?
-    percolatorSettings.Filters.Select(filterSettings => Filter.Create(filterSettings)).ToArray() :
-    new IFilter[0];
+// Create filters
+IFilter[] filters = percolatorSettings.Filters.Select(filterSettings => Filter.Create(filterSettings)).ToArray();
 
 // Create pipeline evaluator
 IPipelineEvaluator pipeline = PipelineEvaluator.Create();
