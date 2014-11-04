@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RssPercolator", "RssPercolator\RssPercolator.csproj", "{920DD5FC-ADDF-499E-A388-21CC83FC4C5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RssPercolator.Client", "RssPercolator.Client\RssPercolator.Client.csproj", "{01E4586B-6BE6-41E3-8FBC-C6381FCBBB38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{920DD5FC-ADDF-499E-A388-21CC83FC4C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{920DD5FC-ADDF-499E-A388-21CC83FC4C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{920DD5FC-ADDF-499E-A388-21CC83FC4C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{920DD5FC-ADDF-499E-A388-21CC83FC4C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01E4586B-6BE6-41E3-8FBC-C6381FCBBB38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01E4586B-6BE6-41E3-8FBC-C6381FCBBB38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01E4586B-6BE6-41E3-8FBC-C6381FCBBB38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01E4586B-6BE6-41E3-8FBC-C6381FCBBB38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
