@@ -78,6 +78,14 @@ namespace RssPercolator
                         using (Stream responseStream = task.Result)
                         using (XmlReader reader = XmlReader.Create(responseStream))
                         {
+                            var rss10 = new Rss10FeedFormatter();
+
+                            if (rss10.CanRead(reader))
+                            {
+                                rss10.ReadFrom(reader);
+                                return rss10.Feed;
+                            }
+
                             return SyndicationFeed.Load(reader);
                         }
                     });

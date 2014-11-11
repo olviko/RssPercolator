@@ -15,9 +15,11 @@ namespace RssPercolator.Client
             //github.SaveToFile(settingsFile);
             //PercolatorSettings github = PercolatorSettings.LoadFromFile(settingsFile);
 
+            PercolatorSettings bikes = CraigslistBikes();
             PercolatorSettings github = GitHub();
             PercolatorSettings jobs = JobOpenings();
 
+            Percolate(bikes);
             Percolate(github);
             Percolate(jobs);
         }
@@ -39,6 +41,53 @@ namespace RssPercolator.Client
 
                 pipeline.Execute(filters, pipelineSettings);
             }
+        }
+
+
+        private static PercolatorSettings CraigslistBikes()
+        {
+            var pipelineSettings = new PercolatorSettings
+            {
+                Pipelines = new[]
+                { 
+                    new PipelineSettings
+                    {
+                        Inputs = new []
+                        { 
+                            "http://miami.craigslist.org/search/pbc/bik?format=rss"
+                        },
+
+                        Output = "bikes4sale.xml",
+                        Title = "Bikes for sale",
+                        Description = "Aggregated & filtered feed of bikes for sale on craigslist.org"
+                    }
+                },
+                Filters = new[]
+                {
+                    // First, exlude all
+                    new FilterSettings
+                    {
+                        Action = FilterAction.Exclude,
+                        Field = FeedField.Any,
+                        PatternType = PatternType.Glob,
+                        Patterns = new [] { "*" }
+                    },
+                    
+                    // Only include posts with the following keywords
+                    new FilterSettings
+                    {
+                        Action = FilterAction.Include,
+                        Field = FeedField.Title,
+                        PatternType = PatternType.String,
+                        Patterns = new [] 
+                        {
+                            "cannondale","trek","giant","specialized"
+                        }
+                    }
+                }
+            };
+
+            return pipelineSettings;
         }
 
         private static PercolatorSettings JobOpenings()
