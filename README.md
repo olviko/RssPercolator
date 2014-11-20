@@ -1,7 +1,7 @@
 RssPercolator
 =============
 
-RssPercolator is a small .NET library used for downloading, aggregating, and filtering RSS feeds. Developed out of frustration with [Yahoo Pipes](https://pipes.yahoo.com/pipes/).
+RssPercolator is a .NET library used for downloading, aggregating, and filtering RSS feeds. Developed out of frustration with [Yahoo Pipes](https://pipes.yahoo.com/pipes/).
 
 Features
 --
